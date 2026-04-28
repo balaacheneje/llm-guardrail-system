@@ -1,7 +1,10 @@
+import os
+from dotenv import load_dotenv
 import requests
 from guardrails.validator import validate_output
 
-API_KEY = "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"
+load_dotenv()
+API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 def call_llm(prompt):
     response = requests.post(
